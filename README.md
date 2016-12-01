@@ -4,7 +4,7 @@ This project is a single-page application featuring a map of my neighborhood in 
 
 ## Getting started
 
-A running version of this project is available [here](...).
+A running version of this project is available [here](https://guglio.github.io/Neighborhood-Map/).
 
 ## Built with
 
