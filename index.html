@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Neighborhood Map</title>
+    <link href="css/screen.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h1>Neighborhood Navigation</h1>
+    <div class="sideResults hiddenclass">
+      <div class="menuSideMenu">
+      </div>
+      <div class="menuSideResults">
+        <div class="searchMenu">
+          <div class="menu-btn icon-menu"></div>
+        </div>
+      </div>
+    </div>
+    <div id="map"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.1/knockout-min.js"></script>
+    <script>
+      function animateHide(el){
+        el.animate({
+          "left" : "-270px"
+        });
+      }
+      function animateShow(el){
+        el.animate({
+          "left" : "0px"
+        });
+      };
+      $(".searchMenu").click(function(){
+        var sideResults = $(".sideResults");
+          if(sideResults.position().left == 0)
+            animateHide(sideResults);
+          else
+            animateShow(sideResults);
+      });
+      $(window).resize(function(){
+        if($(this).width() >= 768)
+          animateShow($('.hiddenclass'));
+        else
+          animateHide($('.hiddenclass'));
+      });
+    </script>
+  </body>
+</html>

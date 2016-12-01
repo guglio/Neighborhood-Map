@@ -1,0 +1,203 @@
+/* line 5, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src: url("/fonts/icomoon.eot?d6ez1u");
+  src: url("/fonts/icomoon.eot?d6ez1u#iefix") format("embedded-opentype"), url("/fonts/icomoon.ttf?d6ez1u") format("truetype"), url("/fonts/icomoon.woff?d6ez1u") format("woff"), url("/fonts/icomoon.svg?d6ez1u#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 12, ../sass/_fonts.scss */
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* line 27, ../sass/_fonts.scss */
+.icon-camera:before {
+  content: "\e90f";
+}
+
+/* line 30, ../sass/_fonts.scss */
+.icon-ticket:before {
+  content: "\e939";
+}
+
+/* line 33, ../sass/_fonts.scss */
+.icon-cart:before {
+  content: "\e93a";
+}
+
+/* line 36, ../sass/_fonts.scss */
+.icon-location:before {
+  content: "\e948";
+}
+
+/* line 39, ../sass/_fonts.scss */
+.icon-map-full:before {
+  content: "\e94b";
+}
+
+/* line 42, ../sass/_fonts.scss */
+.icon-map-empty:before {
+  content: "\e94c";
+}
+
+/* line 45, ../sass/_fonts.scss */
+.icon-spoon-knife:before {
+  content: "\e9a3";
+}
+
+/* line 48, ../sass/_fonts.scss */
+.icon-menu:before {
+  content: "\e9bd";
+}
+
+/* line 51, ../sass/_fonts.scss */
+.icon-bookmark:before {
+  content: "\e9d2";
+}
+
+/* line 54, ../sass/_fonts.scss */
+.icon-star-empty:before {
+  content: "\e9d7";
+}
+
+/* line 57, ../sass/_fonts.scss */
+.icon-star-full:before {
+  content: "\e9d9";
+}
+
+/* line 60, ../sass/_fonts.scss */
+.icon-heart:before {
+  content: "\e9da";
+}
+
+/* line 63, ../sass/_fonts.scss */
+.icon-web:before {
+  content: "\ea80";
+}
+
+/* line 66, ../sass/_fonts.scss */
+.icon-github:before {
+  content: "\eab0";
+}
+
+/* line 69, ../sass/_fonts.scss */
+.icon-linkedin:before {
+  content: "\eac9";
+}
+
+/* line 13, ../sass/screen.scss */
+.sideResults {
+  height: 500px;
+  width: 300px;
+  position: absolute;
+  color: #E6F0EF;
+}
+
+/* line 19, ../sass/screen.scss */
+.menuSideMenu {
+  background-color: #22283B;
+  width: 270px;
+  height: 100%;
+  float: left;
+}
+
+/* line 25, ../sass/screen.scss */
+.menuSideResults {
+  float: right;
+  width: 30px;
+}
+
+/* line 30, ../sass/screen.scss */
+.searchMenu {
+  height: 30px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background: #22283B;
+}
+
+/* line 36, ../sass/screen.scss */
+.menu-btn {
+  padding: 5px 0 0 5px;
+}
+
+/* line 39, ../sass/screen.scss */
+#map {
+  background-color: aqua;
+  height: 500px;
+  width: 100%;
+}
