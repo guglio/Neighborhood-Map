@@ -24,5 +24,5 @@ I use Git for versioning.
 
 ## Acknowledgments
 
-[Theme color inspiration](https://www.design-seeds.com/seasons/winter/winter-tones/)
-[Icon fonts](https://icomoon.io)
+* [Theme color inspiration](https://www.design-seeds.com/seasons/winter/winter-tones/)
+* [Icon fonts](https://icomoon.io)
