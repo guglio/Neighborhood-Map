@@ -23,6 +23,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.1/knockout-min.js"></script>
     <script>
+      $.getJSON( "js/POI.json", function( data ) {
+        console.log(data);
+      }).done(function() {
+        console.log( "second success" );
+      })
+      .fail(function() {
+        console.log( "error" );
+      })
+      .always(function() {
+        console.log( "complete" );
+      });
       function animateHide(el){
         el.animate({
           "left" : "-270px"
