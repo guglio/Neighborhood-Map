@@ -22,11 +22,16 @@ $(window).resize(function(){
     animateHide($('.hiddenclass'));
 });
 
+var locationsViewModel = {
+     locationList : ko.observableArray()
+};
+ko.applyBindings(locationsViewModel);
+
 // Code taken from the public repository for code examples used in Udacity's Google Maps APIs course (https://www.udacity.com/course/google-maps-apis--ud864).
 var map;
-
 // Create a new blank array for all the listing markers.
 var markers = [];
+
 function initMap() {
   // Constructor creates a new map - only center and zoom are required.
   map = new google.maps.Map(document.getElementById('map'), {
@@ -42,13 +47,24 @@ function initMap() {
   var largeInfowindow = new google.maps.InfoWindow();
   var bounds = new google.maps.LatLngBounds();
 
+// I organized the JSON file, with all the data, using this structure:
+// coordinates : {
+//  lat: latitude
+//  lng: longitude
+// }
+// title: Name of the POI
+//  category: restaurant | shopping | attraction | cultural | bar | entertainment
+
 $.getJSON( "js/POI.json", function( data ) {
     var locations = data.locations;
     // The following group uses the location array to create an array of markers on initialize.
+
     for (var i = 0; i < locations.length; i++) {
       // Get the position from the location array.
       var position = locations[i].coordinates;
       var title = locations[i].title;
+
+      locationsViewModel.locationList.push({name: title, id: i, category : locations[i].category});
       // Create a marker per location, and put into markers array.
       var marker = new google.maps.Marker({
         map: map,

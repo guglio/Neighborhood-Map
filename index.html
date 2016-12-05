@@ -11,7 +11,12 @@
     <h1 class="titleApp">Neighborhood Navigation</h1>
     <div class="sideResults hiddenclass">
       <div class="menuSideMenu">
-        asdadasa
+        <form>
+          <input type="text">
+        </form>
+        <ul id="POIlist" data-bind="foreach: locationList">
+              <li class="location"><p data-bind="text:name"></p><span class="categoryIcon" data-bind="css: 'icon-'+category"></span></li>
+          </ul>
       </div>
       <div class="menuSideResults">
         <div class="searchMenu">
