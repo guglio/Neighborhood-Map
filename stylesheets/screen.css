@@ -66,8 +66,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 @font-face {
   font-family: 'icomoon';
-  src: url("../fonts/icomoon.eot?d6ez1u");
-  src: url("..//fonts/icomoon.eot?d6ez1u#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?d6ez1u") format("truetype"), url("../fonts/icomoon.woff?d6ez1u") format("woff"), url("../fonts/icomoon.svg?d6ez1u#icomoon") format("svg");
+  src: url("../fonts/icomoon.eot?33l2ez");
+  src: url("../fonts/icomoon.eot?33l2ez#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?33l2ez") format("truetype"), url("../fonts/icomoon.woff?33l2ez") format("woff"), url("../fonts/icomoon.svg?33l2ez#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -87,17 +87,17 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 /* line 27, ../sass/_fonts.scss */
-.icon-camera:before {
+.icon-cultural:before {
   content: "\e90f";
 }
 
 /* line 30, ../sass/_fonts.scss */
-.icon-ticket:before {
+.icon-entertainment:before {
   content: "\e939";
 }
 
 /* line 33, ../sass/_fonts.scss */
-.icon-cart:before {
+.icon-shopping:before {
   content: "\e93a";
 }
 
@@ -117,46 +117,51 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 /* line 45, ../sass/_fonts.scss */
-.icon-spoon-knife:before {
-  content: "\e9a3";
+.icon-bar:before {
+  content: "\e9a1";
 }
 
 /* line 48, ../sass/_fonts.scss */
+.icon-restaurant:before {
+  content: "\e9a3";
+}
+
+/* line 51, ../sass/_fonts.scss */
 .icon-menu:before {
   content: "\e9bd";
 }
 
-/* line 51, ../sass/_fonts.scss */
+/* line 54, ../sass/_fonts.scss */
 .icon-bookmark:before {
   content: "\e9d2";
 }
 
-/* line 54, ../sass/_fonts.scss */
+/* line 57, ../sass/_fonts.scss */
 .icon-star-empty:before {
   content: "\e9d7";
 }
 
-/* line 57, ../sass/_fonts.scss */
+/* line 60, ../sass/_fonts.scss */
 .icon-star-full:before {
   content: "\e9d9";
 }
 
-/* line 60, ../sass/_fonts.scss */
+/* line 63, ../sass/_fonts.scss */
 .icon-heart:before {
   content: "\e9da";
 }
 
-/* line 63, ../sass/_fonts.scss */
+/* line 66, ../sass/_fonts.scss */
 .icon-web:before {
   content: "\ea80";
 }
 
-/* line 66, ../sass/_fonts.scss */
+/* line 69, ../sass/_fonts.scss */
 .icon-github:before {
   content: "\eab0";
 }
 
-/* line 69, ../sass/_fonts.scss */
+/* line 72, ../sass/_fonts.scss */
 .icon-linkedin:before {
   content: "\eac9";
 }
@@ -177,21 +182,22 @@ html {
   font-weight: 300;
 }
 
-/* line 26, ../sass/screen.scss */
+/* line 25, ../sass/screen.scss */
 .sideResults {
-  height: 100%;
+  height: calc(100vh - 42px);
   width: 300px;
   position: absolute;
   color: #E6F0EF;
   z-index: 2;
 }
 
-/* line 33, ../sass/screen.scss */
+/* line 32, ../sass/screen.scss */
 .menuSideMenu {
   background-color: #22283B;
   width: 270px;
   height: 100%;
   float: left;
+  overflow: scroll;
 }
 
 /* line 39, ../sass/screen.scss */
@@ -218,4 +224,9 @@ html {
   position: absolute;
   height: calc(100vh - 42px);
   width: 100%;
+}
+
+/* line 58, ../sass/screen.scss */
+.location {
+  padding: 0.25em;
 }

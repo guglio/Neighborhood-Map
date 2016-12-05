@@ -21,10 +21,9 @@ html{
   background-color: $lightBlueGrey;
   color: $almostWhite;
   font-weight: 300;
-  // display: none;
 }
 .sideResults{
-  height:100%;
+  height: calc(100vh - 42px);
   width:300px;
   position: absolute;
   color: $almostWhite;
@@ -35,6 +34,7 @@ html{
   width: 270px;
   height: 100%;
   float: left;
+  overflow: scroll;
 }
 .menuSideResults{
   float: right;
@@ -55,3 +55,12 @@ html{
   height: calc(100vh - 42px);
   width: 100%;
 }
+.location{
+  padding: 0.25em;
+}
+// .categoryIcon{
+//   &:before{
+//     background-color: red;
+//     padding: 0.25em 1em 0.25em 0.5em;
+//   }
+// }
