@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700");
 /* line 5, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -161,14 +162,31 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 /* line 13, ../sass/screen.scss */
+html {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+}
+
+/* line 17, ../sass/screen.scss */
+.titleApp {
+  font-size: 2em;
+  text-align: center;
+  padding: 0.25em 0;
+  background-color: #4E6370;
+  color: #E6F0EF;
+  font-weight: 300;
+}
+
+/* line 26, ../sass/screen.scss */
 .sideResults {
-  height: 500px;
+  height: 100%;
   width: 300px;
   position: absolute;
   color: #E6F0EF;
+  z-index: 2;
 }
 
-/* line 19, ../sass/screen.scss */
+/* line 33, ../sass/screen.scss */
 .menuSideMenu {
   background-color: #22283B;
   width: 270px;
@@ -176,13 +194,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   float: left;
 }
 
-/* line 25, ../sass/screen.scss */
+/* line 39, ../sass/screen.scss */
 .menuSideResults {
   float: right;
   width: 30px;
 }
 
-/* line 30, ../sass/screen.scss */
+/* line 44, ../sass/screen.scss */
 .searchMenu {
   height: 30px;
   border-top-right-radius: 5px;
@@ -190,14 +208,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   background: #22283B;
 }
 
-/* line 36, ../sass/screen.scss */
+/* line 50, ../sass/screen.scss */
 .menu-btn {
   padding: 5px 0 0 5px;
 }
 
-/* line 39, ../sass/screen.scss */
+/* line 53, ../sass/screen.scss */
 #map {
-  background-color: aqua;
-  height: 500px;
+  position: absolute;
+  height: calc(100vh - 42px);
   width: 100%;
 }

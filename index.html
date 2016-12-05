@@ -8,9 +8,10 @@
     <link href="css/screen.css" rel="stylesheet" />
   </head>
   <body>
-    <h1>Neighborhood Navigation</h1>
+    <h1 class="titleApp">Neighborhood Navigation</h1>
     <div class="sideResults hiddenclass">
       <div class="menuSideMenu">
+        asdadasa
       </div>
       <div class="menuSideResults">
         <div class="searchMenu">
@@ -19,44 +20,12 @@
       </div>
     </div>
     <div id="map"></div>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.1/knockout-min.js"></script>
-    <script>
-      $.getJSON( "js/POI.json", function( data ) {
-        console.log(data);
-      }).done(function() {
-        console.log( "second success" );
-      })
-      .fail(function() {
-        console.log( "error" );
-      })
-      .always(function() {
-        console.log( "complete" );
-      });
-      function animateHide(el){
-        el.animate({
-          "left" : "-270px"
-        });
-      }
-      function animateShow(el){
-        el.animate({
-          "left" : "0px"
-        });
-      };
-      $(".searchMenu").click(function(){
-        var sideResults = $(".sideResults");
-          if(sideResults.position().left == 0)
-            animateHide(sideResults);
-          else
-            animateShow(sideResults);
-      });
-      $(window).resize(function(){
-        if($(this).width() >= 768)
-          animateShow($('.hiddenclass'));
-        else
-          animateHide($('.hiddenclass'));
-      });
+    <script src="js/app.js"></script>
+    <script async defer
+        src=
+        "https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyCXAIOi4uNQuag0UbOJcSUqC5_p5bnTM0k&v=3&callback=initMap">
     </script>
   </body>
 </html>

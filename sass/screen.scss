@@ -1,6 +1,7 @@
 @import "compass/reset";
 @import "compass/css3";
 @import "_fonts";
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
 
 $lightBlue: #EAF1FE;
 $blueGrey: #A0BCBD;
@@ -9,12 +10,25 @@ $lightBlueGrey: #4E6370;
 $lightGrey: #C1CDD2;
 $almostWhite: #E6F0EF;
 
-
+html{
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+}
+.titleApp{
+  font-size: 2em;
+  text-align: center;
+  padding: 0.25em 0;
+  background-color: $lightBlueGrey;
+  color: $almostWhite;
+  font-weight: 300;
+  // display: none;
+}
 .sideResults{
-  height:500px;
+  height:100%;
   width:300px;
   position: absolute;
   color: $almostWhite;
+  z-index: 2;
 }
 .menuSideMenu{
   background-color: $darkBlue;
@@ -37,7 +51,7 @@ $almostWhite: #E6F0EF;
   padding: 5px 0 0 5px;
 }
 #map{
-  background-color:aqua;
-  height:500px;
+  position: absolute;
+  height: calc(100vh - 42px);
   width: 100%;
 }
