@@ -35,6 +35,7 @@ html{
   height: 100%;
   float: left;
   overflow: scroll;
+  position: relative;
 }
 .menuSideResults{
   float: right;
@@ -56,11 +57,38 @@ html{
   width: 100%;
 }
 .location{
-  padding: 0.25em;
+  padding: 0.25em 0.25em 0.25em 1em;
 }
-// .categoryIcon{
-//   &:before{
-//     background-color: red;
-//     padding: 0.25em 1em 0.25em 0.5em;
-//   }
-// }
+.locationName,.categoryIcon{
+  cursor: pointer;
+
+}
+.categoryIcon{
+  padding-left: 0.25em;
+}
+.locationName{
+  padding-left: 0.25em;
+}
+.searchPOI{
+  margin-top:1em;
+  margin-left: 1em;
+}
+.categoryIcon{
+  &:before{
+    background-color: red;
+    margin:0.25em 0;
+    padding:0.25em;
+    display: inline-block;
+    border-radius: 0.25em;
+  }
+}
+#POIlist{
+  margin-top: 45px;
+}
+#searchForm{
+  height: 45px;
+  background-color: inherit;
+  position: fixed;
+  top:42px;
+  width: 270px;
+}

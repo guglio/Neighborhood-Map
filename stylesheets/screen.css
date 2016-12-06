@@ -198,15 +198,16 @@ html {
   height: 100%;
   float: left;
   overflow: scroll;
+  position: relative;
 }
 
-/* line 39, ../sass/screen.scss */
+/* line 40, ../sass/screen.scss */
 .menuSideResults {
   float: right;
   width: 30px;
 }
 
-/* line 44, ../sass/screen.scss */
+/* line 45, ../sass/screen.scss */
 .searchMenu {
   height: 30px;
   border-top-right-radius: 5px;
@@ -214,19 +215,63 @@ html {
   background: #22283B;
 }
 
-/* line 50, ../sass/screen.scss */
+/* line 51, ../sass/screen.scss */
 .menu-btn {
   padding: 5px 0 0 5px;
 }
 
-/* line 53, ../sass/screen.scss */
+/* line 54, ../sass/screen.scss */
 #map {
   position: absolute;
   height: calc(100vh - 42px);
   width: 100%;
 }
 
-/* line 58, ../sass/screen.scss */
+/* line 59, ../sass/screen.scss */
 .location {
+  padding: 0.25em 0.25em 0.25em 1em;
+}
+
+/* line 62, ../sass/screen.scss */
+.locationName, .categoryIcon {
+  cursor: pointer;
+}
+
+/* line 66, ../sass/screen.scss */
+.categoryIcon {
+  padding-left: 0.25em;
+}
+
+/* line 69, ../sass/screen.scss */
+.locationName {
+  padding-left: 0.25em;
+}
+
+/* line 72, ../sass/screen.scss */
+.searchPOI {
+  margin-top: 1em;
+  margin-left: 1em;
+}
+
+/* line 77, ../sass/screen.scss */
+.categoryIcon:before {
+  background-color: red;
+  margin: 0.25em 0;
   padding: 0.25em;
+  display: inline-block;
+  border-radius: 0.25em;
+}
+
+/* line 85, ../sass/screen.scss */
+#POIlist {
+  margin-top: 45px;
+}
+
+/* line 88, ../sass/screen.scss */
+#searchForm {
+  height: 45px;
+  background-color: inherit;
+  position: fixed;
+  top: 42px;
+  width: 270px;
 }
