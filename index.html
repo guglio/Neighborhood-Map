@@ -12,10 +12,10 @@
     <div class="sideResults hiddenclass">
       <div class="menuSideMenu">
         <form id="searchForm">
-          <input placeholder="Search…" type="search" autocomplete="off" class="searchPOI">
+          <input placeholder="Search…" type="search" class="searchPOI" data-bind="textInput: filter">
         </form>
-        <ul id="POIlist" data-bind="foreach: locationList">
-              <li class="location" data-bind="click: openInfoWindow, event:{mouseover:changePinColor, mouseout: defaultPinColor}"><span class="categoryIcon" data-bind="css: 'icon-'+category"></span><span class="locationName" data-bind="text:name"></span></li>
+        <ul id="POIlist" data-bind="foreach: filteredItems">
+              <li class="location" data-bind="click: openInfoWindow, event:{mouseover:changePinColor, mouseout: defaultPinColor}"><span class="categoryIcon" data-bind="css: 'icon-'+$data.category"></span><span class="locationName" data-bind="text:$data.name"></span></li>
           </ul>
       </div>
       <div class="menuSideResults">

@@ -94,11 +94,13 @@ $.getJSON( "js/POI.json", function( data ) {
     }
     // Extend the boundaries of the map for each marker
     map.fitBounds(bounds);
-  console.log("ok");
-}).fail(function() {
-  console.log( "error" );
+  console.log("Load correctly JSON into app");
+}).fail(function(jqXHR, textStatus, errorThrown) {
+  console.log('Error during JSON request: ' + textStatus + ' - ' + errorThrown);
 });
 };
+
+
 // This function populates the infowindow when the marker is clicked. We'll only allow
 // one infowindow which will open at the marker that is clicked, and populate based
 // on that markers position.
@@ -116,11 +118,29 @@ function populateInfoWindow(marker, infowindow) {
 
 // ##################   KNOCKOUT   ##################
 
-var locationsViewModel = {
-     locationList : POIlist
+// Googled how to filter data inside an observable array, and found this
+// solution, witch I had to modify to work for this project
+// http://stackoverflow.com/questions/31188583/filter-table-contents
+var locationsViewModel = function(){
+  var self = this;
+
+    self.filter = ko.observable('');
+
+    self.locationsList = POIlist;
+
+    self.filteredItems = ko.computed(function() {
+      var filter = self.filter();
+      if (!filter) {
+        return self.locationsList();
+      }
+      return self.locationsList().filter(function(i) {
+        var item = i.name.toLowerCase();
+        return item.indexOf(filter.toLowerCase()) > -1;
+      });
+    });
 };
 
-ko.applyBindings(locationsViewModel);
+ko.applyBindings(new locationsViewModel());
 
 // trigger the click event on the specific list item, to show the corresponding marker on the map
 function openInfoWindow(){
