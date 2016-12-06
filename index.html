@@ -11,11 +11,11 @@
     <h1 class="titleApp">Neighborhood Navigation</h1>
     <div class="sideResults hiddenclass">
       <div class="menuSideMenu">
-        <form>
-          <input type="text">
+        <form id="searchForm">
+          <input placeholder="Search…" type="search" autocomplete="off" class="searchPOI">
         </form>
         <ul id="POIlist" data-bind="foreach: locationList">
-              <li class="location"><p data-bind="text:name"></p><span class="categoryIcon" data-bind="css: 'icon-'+category"></span></li>
+              <li class="location" data-bind="click: openInfoWindow, event:{mouseover:changePinColor, mouseout: defaultPinColor}"><span class="categoryIcon" data-bind="css: 'icon-'+category"></span><span class="locationName" data-bind="text:name"></span></li>
           </ul>
       </div>
       <div class="menuSideResults">
