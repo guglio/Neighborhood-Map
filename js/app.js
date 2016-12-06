@@ -1,3 +1,5 @@
+// ##################   Show/hide lateral menu   ##################
+
 function animateHide(el){
   el.animate({
     "left" : "-270px"
@@ -22,10 +24,16 @@ $(window).resize(function(){
     animateHide($('.hiddenclass'));
 });
 
-var locationsViewModel = {
-     locationList : ko.observableArray()
+// ##################   GOOGLE MAP API SECTION   ##################
+
+var POIlist = ko.observableArray();
+
+var iconBase = 'images/';
+var icons = {
+  ylw_pin: iconBase + 'yellow_pin.png',
+  ylw_pin_mini: iconBase + 'yellow_pin_mini.png',
+  red_pin: iconBase + 'red_pin.png'
 };
-ko.applyBindings(locationsViewModel);
 
 // Code taken from the public repository for code examples used in Udacity's Google Maps APIs course (https://www.udacity.com/course/google-maps-apis--ud864).
 var map;
@@ -53,7 +61,7 @@ function initMap() {
 //  lng: longitude
 // }
 // title: Name of the POI
-//  category: restaurant | shopping | attraction | cultural | bar | entertainment
+// category: restaurant | shopping | attraction | cultural | bar | entertainment
 
 $.getJSON( "js/POI.json", function( data ) {
     var locations = data.locations;
@@ -63,18 +71,21 @@ $.getJSON( "js/POI.json", function( data ) {
       // Get the position from the location array.
       var position = locations[i].coordinates;
       var title = locations[i].title;
+      var category = locations[i].category;
 
-      locationsViewModel.locationList.push({name: title, id: i, category : locations[i].category});
       // Create a marker per location, and put into markers array.
       var marker = new google.maps.Marker({
         map: map,
         position: position,
         title: title,
         animation: google.maps.Animation.DROP,
-        id: i
+        category: category,
+        id: i,
+        icon: icons.red_pin
       });
       // Push the marker to our array of markers.
       markers.push(marker);
+      POIlist.push({name: title, id: i, category : category});
       // Create an onclick event to open an infowindow at each marker.
       marker.addListener('click', function() {
         populateInfoWindow(this, largeInfowindow);
@@ -97,9 +108,27 @@ function populateInfoWindow(marker, infowindow) {
     infowindow.marker = marker;
     infowindow.setContent('<div>' + marker.title + '</div>');
     infowindow.open(map, marker);
-    // Make sure the marker property is cleared if the infowindow is closed.
-    infowindow.addListener('closeclick',function(){
-      infowindow.setMarker(null);
+    infowindow.addListener('closeclick', function() {
+      infowindow.marker = null;
     });
   }
+};
+
+// ##################   KNOCKOUT   ##################
+
+var locationsViewModel = {
+     locationList : POIlist
+};
+
+ko.applyBindings(locationsViewModel);
+
+// trigger the click event on the specific list item, to show the corresponding marker on the map
+function openInfoWindow(){
+  google.maps.event.trigger(markers[this.id], 'click');
+};
+function changePinColor(){
+    markers[this.id].setIcon(icons.ylw_pin);
+}
+function defaultPinColor(){
+  markers[this.id].setIcon(icons.red_pin);
 }
