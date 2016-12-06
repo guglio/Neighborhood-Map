@@ -134,7 +134,15 @@ var locationsViewModel = function(){
         return self.locationsList();
       }
       return self.locationsList().filter(function(i) {
-        var item = i.name.toLowerCase();
+
+        var item = i.name.toLowerCase(); // case insensitive to filter
+
+        // check if the item is visibile in the list, then, if not, remove the marker from the map
+        if(item.indexOf(filter.toLowerCase()) > -1)
+          markers[i.id].setMap(map);
+        else {
+          markers[i.id].setMap(null);
+        }
         return item.indexOf(filter.toLowerCase()) > -1;
       });
     });
