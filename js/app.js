@@ -43,7 +43,10 @@ var markers = [];
 function initMap() {
   // Constructor creates a new map - only center and zoom are required.
   map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 44.39199063456404, lng: 7.556188749999933},
+    // center in Cuneo (CN) Italy
+    //center: {lat: 44.39199063456404, lng: 7.556188749999933},
+    // center in San Diego CA
+    center: {"lat": 32.715738000	, "lng": -117.161083800	},
     zoom: 7,
     mapTypeControl: true,
     mapTypeControlOptions: {
@@ -61,7 +64,7 @@ function initMap() {
 //  lng: longitude
 // }
 // title: Name of the POI
-// category: restaurant | shopping | attraction | cultural | bar | entertainment
+// category: restaurant | shopping | cultural | bar | entertainment
 
 $.getJSON( "js/POI.json", function( data ) {
     var locations = data.locations;
@@ -73,8 +76,25 @@ $.getJSON( "js/POI.json", function( data ) {
       var title = locations[i].title;
       var category = locations[i].category;
       var favorite = locations[i].favorite;
+      var address;
 
       // Create a marker per location, and put into markers array.
+      var geocoder = new google.maps.Geocoder;
+      geocoder.geocode({'location': position}, function(results, status) {
+        if (status === 'OK') {
+          if (results[1]){
+            address = results[1].formatted_address;
+          }
+          else{
+            console.log('No results found');
+          }
+        }
+        else{
+          console.log('Geocoder failed due to: ' + status);
+        }
+      });
+      // work in progress to collect NY Times articles about the POI
+      articleSearch(title);
       var marker = new google.maps.Marker({
         map: map,
         position: position,
@@ -82,8 +102,10 @@ $.getJSON( "js/POI.json", function( data ) {
         animation: google.maps.Animation.DROP,
         category: category,
         id: i,
+        formatted_address: address,
         icon: icons.red_pin
       });
+
       // Push the marker to our array of markers.
       markers.push(marker);
       POIlist.push({name: title, id: i, category : category, favorite: ko.observable(favorite)});
@@ -109,7 +131,17 @@ function populateInfoWindow(marker, infowindow) {
   // Check to make sure the infowindow is not already opened on this marker.
   if (infowindow.marker != marker) {
     infowindow.marker = marker;
-    infowindow.setContent('<div>' + marker.title + '</div>');
+    var innerHTML = '<div>';
+    if (marker.title) {
+      innerHTML += '<strong>' + marker.title + '</strong>';
+    }
+    if (marker.formatted_address) {
+      innerHTML += '<br>' + marker.formatted_address;
+    }
+    innerHTML += '</div>';
+
+    infowindow.setContent(innerHTML);
+
     infowindow.open(map, marker);
     infowindow.addListener('closeclick', function() {
       infowindow.marker = null;
@@ -185,4 +217,30 @@ function favoriteLocation(){
 
 function isFavorite(el){
   return el.favorite() ? "icon-star-full" : "icon-star-empty iconHidden";
+};
+
+
+
+// Built by LucyBot. www.lucybot.com
+function articleSearch(place){
+  var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+  var date = new Date(), y = date.getFullYear(), m = ("0" + (date.getMonth() + 1)).slice(-2);
+  var firstDay = "01";
+  var lastDay = ("0" + date.getDate()).slice(-2);
+  url += '?' + $.param({
+    'api-key': "117512e0e9bc4b1dafd16fe2ec69a9c3",
+    'q': place,
+    'begin_date': y+"01"+firstDay,
+    'end_date': y+m+lastDay,
+    'fl': "snippet,web_url,headline,pub_date"
+  });
+  console.log(url);
+  $.ajax({
+    url: url,
+    method: 'GET',
+  }).done(function(result) {
+    console.log(result);
+  }).fail(function(err) {
+    throw err;
+  });
 };
