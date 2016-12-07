@@ -1,118 +1,76 @@
 {
   "locations":[
     {
-      "coordinates": {"lat": 44.387335800, "lng": 7.545765300},
-      "title":	"Pizzeria Express S.N.C.",
-      "category": "restaurant",
-      "favorite" : false
+      "coordinates": {"lat": 32.707466100	, "lng": -117.159718800	},
+      "title":	"Hard Rock Hotel San Diego",
+      "favorite": false,
+      "category": "entertainment"
     },
     {
-      "coordinates": {"lat": 44.387351800, "lng": 7.545329200},
-      "title":	"Bar Gelateria Corso",
-      "category": "bar",
-      "favorite" : false
+      "coordinates": {"lat": 32.707560000	, "lng": -117.159910000	},
+      "title":	"NOBU San Diego",
+      "favorite": false,
+      "category": "restaurant"
     },
     {
-      "coordinates": {"lat": 44.386390600, "lng": 7.539794400},
-      "title":	"Multisala Fiamma 4 - Cinelandia S.p.A.",
-      "category": "entertainment",
-      "favorite" : false
+      "coordinates": {"lat": 32.710563400	, "lng": -117.165188200	},
+      "title":	"The New Children’s Museum",
+      "favorite": false,
+      "category": "entertainment"
     },
     {
-      "coordinates": {"lat": 44.389564700, "lng": 7.547883600},
-      "title":	"Monumento a Giuseppe Barbaroux",
-      "category": "cultural",
-      "favorite" : false
+      "coordinates": {"lat": 32.755747900	, "lng": -117.197638300	},
+      "title":	"Old Town",
+      "favorite": false,
+      "category": "cultural"
     },
     {
-      "coordinates": {"lat": 44.390295500	, "lng": 7.548615000},
-      "title":	"Via Roma",
-      "category": "cultural",
-      "favorite" : false
+      "coordinates": {"lat": 32.685885300	, "lng": -117.183089100	},
+      "title":	"Coronado",
+      "favorite": false,
+      "category": "entertainment"
     },
     {
-      "coordinates": {"lat": 44.390916800	, "lng": 7.548504500},
-      "title":	"Cattedrale di Santa Maria del Bosco",
-      "category": "cultural",
-      "favorite" : false
+      "coordinates": {"lat": 32.724088900	, "lng": -117.188568300	},
+      "title":	"Island Prime",
+      "favorite": false,
+      "category": "restaurant"
     },
     {
-      "coordinates": {"lat": 44.392384200	, "lng": 7.545860000},
-      "title":	"Open Baladin Cuneo",
-      "category": "bar",
-      "favorite" : false
+      "coordinates": {"lat": 32.734147900	, "lng": -117.144553000	},
+      "title":	"Balboa Park",
+      "favorite": false,
+      "category": "cultural"
     },
     {
-      "coordinates": {"lat": 44.392205200	, "lng": 7.546335800},
-      "title":	"Piazza Foro Boario",
-      "category": "cultural",
-      "favorite" : false
+      "coordinates": {"lat": 32.732110600	, "lng": -117.147459400	},
+      "title":	"San Diego Natural History Museum",
+      "favorite": false,
+      "category": "cultural"
     },
     {
-      "coordinates": {"lat": 44.392785100	, "lng": 7.551084600},
-      "title":	"Palazzo Barberi di Branzola",
-      "category": "cultural",
-      "favorite" : false
+      "coordinates": {"lat": 32.732158000	, "lng": -117.150430000	},
+      "title":	"The San Diego Museum of Art",
+      "favorite": false,
+      "category": "cultural"
     },
     {
-      "coordinates": {"lat": 44.393792800	, "lng": 7.551353100},
-      "title":	"Kombu - Cuneo",
-      "category": "restaurant",
-      "favorite" : false
+      "coordinates": {"lat": 32.731250300	, "lng": -117.148232700	},
+      "title":	"San Diego History Center",
+      "favorite": false,
+      "category": "cultural"
     },
     {
-      "coordinates": {"lat": 44.394839500	, "lng": 7.550599400},
-      "title":	"Complesso Monumentale di San Francesco",
-      "category": "cultural",
-      "favorite" : false
+      "coordinates": {"lat": 32.756250100	, "lng": -117.201483500	},
+      "title":	"Perry's Cafe",
+      "favorite": false,
+      "category": "restaurant"
     },
     {
-      "coordinates": {"lat": 44.393944000	, "lng": 7.549571000},
-      "title":	"Santa Croce",
-      "category": "cultural",
-      "favorite" : false
-    },
-    {
-      "coordinates": {"lat": 44.393143000	, "lng": 7.548738900},
-      "title":	"Ristorantino l'Oca Nera",
-      "category": "restaurant",
-      "favorite" : false
-    },
-    {
-      "coordinates": {"lat": 44.392608900	, "lng": 7.550048300},
-      "title":	"BOVE'S macellai dal 1929",
-      "category": "restaurant",
-      "favorite" : false
-    },
-    {
-      "coordinates": {"lat": 44.393676400	, "lng": 7.553401000},
-      "title":	"Teatro Toselli",
-      "category": "entertainment",
-      "favorite" : false
-    },
-    {
-      "coordinates": {"lat": 44.384048600	, "lng": 7.541627700},
-      "title":	"Fontana Piazza Europa",
-      "category": "cultural",
-      "favorite" : false
-    },
-    {
-      "coordinates": {"lat": 44.384003100	, "lng": 7.549706600},
-      "title":	"Monumento alla Resistenza",
-      "category": "cultural",
-      "favorite" : false
-    },
-    {
-      "coordinates": {"lat": 44.387457700	, "lng": 7.552056500},
-      "title":	"Stadio del Nuoto di Cuneo",
-      "category": "entertainment",
-      "favorite" : false
-    },
-    {
-      "coordinates": {"lat": 44.389972700	, "lng": 7.547391600},
-      "title":	"Museo Casa Galimberti",
-      "category": "cultural",
-      "favorite" : false
+      "coordinates": {"lat": 32.764790300	, "lng": -117.226608300	},
+      "title":	"SeaWorld San Diego",
+      "favorite": false,
+      "category": "entertainment"
     }
   ]
 }
