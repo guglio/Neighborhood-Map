@@ -233,27 +233,37 @@ html {
 }
 
 /* line 62, ../sass/screen.scss */
+.iconHidden {
+  display: none;
+}
+
+/* line 65, ../sass/screen.scss */
+.location:hover .iconHidden {
+  display: inline-block;
+}
+
+/* line 68, ../sass/screen.scss */
 .locationName, .categoryIcon {
   cursor: pointer;
 }
 
-/* line 66, ../sass/screen.scss */
+/* line 72, ../sass/screen.scss */
 .categoryIcon {
   padding-left: 0.25em;
 }
 
-/* line 69, ../sass/screen.scss */
+/* line 75, ../sass/screen.scss */
 .locationName {
   padding-left: 0.25em;
 }
 
-/* line 72, ../sass/screen.scss */
+/* line 78, ../sass/screen.scss */
 .searchPOI {
   margin-top: 1em;
   margin-left: 1em;
 }
 
-/* line 77, ../sass/screen.scss */
+/* line 84, ../sass/screen.scss */
 .categoryIcon:before {
   background-color: red;
   margin: 0.25em 0;
@@ -262,12 +272,12 @@ html {
   border-radius: 0.25em;
 }
 
-/* line 85, ../sass/screen.scss */
+/* line 92, ../sass/screen.scss */
 #POIlist {
   margin-top: 45px;
 }
 
-/* line 88, ../sass/screen.scss */
+/* line 95, ../sass/screen.scss */
 #searchForm {
   height: 45px;
   background-color: inherit;

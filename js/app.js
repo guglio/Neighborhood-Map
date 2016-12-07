@@ -31,8 +31,8 @@ var POIlist = ko.observableArray();
 var iconBase = 'images/';
 var icons = {
   ylw_pin: iconBase + 'yellow_pin.png',
-  ylw_pin_mini: iconBase + 'yellow_pin_mini.png',
-  red_pin: iconBase + 'red_pin.png'
+  red_pin: iconBase + 'red_pin.png',
+  star: iconBase + 'star.png'
 };
 
 // Code taken from the public repository for code examples used in Udacity's Google Maps APIs course (https://www.udacity.com/course/google-maps-apis--ud864).
@@ -72,6 +72,7 @@ $.getJSON( "js/POI.json", function( data ) {
       var position = locations[i].coordinates;
       var title = locations[i].title;
       var category = locations[i].category;
+      var favorite = locations[i].favorite;
 
       // Create a marker per location, and put into markers array.
       var marker = new google.maps.Marker({
@@ -85,7 +86,7 @@ $.getJSON( "js/POI.json", function( data ) {
       });
       // Push the marker to our array of markers.
       markers.push(marker);
-      POIlist.push({name: title, id: i, category : category});
+      POIlist.push({name: title, id: i, category : category, favorite: ko.observable(favorite)});
       // Create an onclick event to open an infowindow at each marker.
       marker.addListener('click', function() {
         populateInfoWindow(this, largeInfowindow);
@@ -94,9 +95,9 @@ $.getJSON( "js/POI.json", function( data ) {
     }
     // Extend the boundaries of the map for each marker
     map.fitBounds(bounds);
-  console.log("Load correctly JSON into app");
+  console.log("Load correctly data into app");
 }).fail(function(jqXHR, textStatus, errorThrown) {
-  console.log('Error during JSON request: ' + textStatus + ' - ' + errorThrown);
+  console.log('Error during data request: ' + textStatus + ' - ' + errorThrown);
 });
 };
 
@@ -127,36 +128,61 @@ var locationsViewModel = function(){
     self.filter = ko.observable('');
 
     self.locationsList = POIlist;
-
     self.filteredItems = ko.computed(function() {
       var filter = self.filter();
-      if (!filter) {
+      // this way markers are populated back into the map
+      if (filter == ' ') {
         return self.locationsList();
       }
-      return self.locationsList().filter(function(i) {
+      else{
+        return self.locationsList().filter(function(i) {
 
-        var item = i.name.toLowerCase(); // case insensitive to filter
+          var item = i.name.toLowerCase(); // case insensitive for filter
 
-        // check if the item is visibile in the list, then, if not, remove the marker from the map
-        if(item.indexOf(filter.toLowerCase()) > -1)
-          markers[i.id].setMap(map);
-        else {
-          markers[i.id].setMap(null);
-        }
-        return item.indexOf(filter.toLowerCase()) > -1;
-      });
+          // show/hide markers on map according to the current filter
+          if(item.indexOf(filter.toLowerCase()) > -1)
+            markers[i.id].setMap(map);
+          else {
+            markers[i.id].setMap(null);
+          }
+          return item.indexOf(filter.toLowerCase()) > -1;
+        });
+      }
     });
 };
 
 ko.applyBindings(new locationsViewModel());
-
 // trigger the click event on the specific list item, to show the corresponding marker on the map
 function openInfoWindow(){
   google.maps.event.trigger(markers[this.id], 'click');
 };
 function changePinColor(){
+  var self = this;
+  if(self.favorite())
+    markers[self.id].setIcon(icons.star);
+  else
     markers[this.id].setIcon(icons.ylw_pin);
 }
 function defaultPinColor(){
-  markers[this.id].setIcon(icons.red_pin);
+  var self = this;
+  if(self.favorite())
+    markers[self.id].setIcon(icons.star);
+  else
+    markers[self.id].setIcon(icons.red_pin);
 }
+function favoriteLocation(){
+  var self = this;
+
+  if(self.favorite()){
+    self.favorite(false);
+
+  }
+  else{
+    self.favorite(true);
+
+  }
+}
+
+function isFavorite(el){
+  return el.favorite() ? "icon-star-full" : "icon-star-empty iconHidden";
+};

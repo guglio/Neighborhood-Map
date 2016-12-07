@@ -15,7 +15,9 @@
           <input placeholder="Search…" type="search" class="searchPOI" data-bind="textInput: filter">
         </form>
         <ul id="POIlist" data-bind="foreach: filteredItems">
-              <li class="location" data-bind="click: openInfoWindow, event:{mouseover:changePinColor, mouseout: defaultPinColor}"><span class="categoryIcon" data-bind="css: 'icon-'+$data.category"></span><span class="locationName" data-bind="text:$data.name"></span></li>
+              <li class="location" data-bind="click: openInfoWindow, event:{mouseover:changePinColor, mouseout: defaultPinColor}"><span class="categoryIcon" data-bind="css: 'icon-'+$data.category"></span><span class="locationName" data-bind="text:$data.name"></span>
+                <span data-bind="click:favoriteLocation, css: isFavorite($data)"></span>
+              </li>
           </ul>
       </div>
       <div class="menuSideResults">
