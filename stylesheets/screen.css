@@ -291,3 +291,30 @@ html {
   top: 42px;
   width: 270px;
 }
+
+/* line 107, ../sass/screen.scss */
+.newsHeadline {
+  color: black;
+  margin-left: 2em;
+}
+/* line 111, ../sass/screen.scss */
+.newsLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* line 116, ../sass/screen.scss */
+#news {
+  width: 200px;
+  height: 5em;
+  overflow: scroll;
+  list-style-type: disc !important;
+  list-style-position: outside !important;
+}
+
+/* line 123, ../sass/screen.scss */
+.markerName {
+  font-size: 1.25em;
+  text-align: center;
+  padding-bottom: 0.5em;
+}

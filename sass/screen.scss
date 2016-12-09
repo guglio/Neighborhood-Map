@@ -103,3 +103,25 @@ html{
   top:42px;
   width: 270px;
 }
+.news{
+  &Headline{
+    color: black;
+    margin-left: 2em;
+  }
+  &Link{
+    text-decoration: none;
+    color: inherit;
+  }
+}
+#news{
+  width: 200px;
+  height: 5em;
+  overflow: scroll;
+  list-style-type: disc !important;
+  list-style-position: outside !important;
+}
+.markerName{
+  font-size: 1.25em;
+  text-align: center;
+  padding-bottom: 0.5em;
+}
