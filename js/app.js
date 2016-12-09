@@ -39,12 +39,18 @@ var icons = {
 var map;
 // Create a new blank array for all the listing markers.
 var markers = [];
+var locations = [];
+// load external data
+$.getJSON( "js/POI.json", function( data ) {
+    locations = data.locations;
+    console.log("Load correctly data into app");
+  }).fail(function(jqXHR, textStatus, errorThrown) {
+    console.log('Error during data request: ' + textStatus + ' - ' + errorThrown);
+  });
 
 function initMap() {
   // Constructor creates a new map - only center and zoom are required.
   map = new google.maps.Map(document.getElementById('map'), {
-    // center in Cuneo (CN) Italy
-    //center: {lat: 44.39199063456404, lng: 7.556188749999933},
     // center in San Diego CA
     center: {"lat": 32.715738000	, "lng": -117.161083800	},
     zoom: 7,
@@ -56,73 +62,41 @@ function initMap() {
   });
 
   var largeInfowindow = new google.maps.InfoWindow();
+
+  for (var i = 0; i < locations.length; i++) {
+
+    var position = locations[i].coordinates;
+    var title = locations[i].title;
+    var category = locations[i].category;
+    var favorite = locations[i].favorite;
+    // Create a marker per location, and put into markers array.
+    var marker = new google.maps.Marker({
+      position: position,
+      title: title,
+      animation: google.maps.Animation.DROP,
+      id: i,
+      category: category
+    });
+    // Push the marker to our array of markers.
+    markers.push(marker);
+    POIlist.push({name: title, id: i, category : category, favorite: ko.observable(favorite)});
+    // Create an onclick event to open the large infowindow at each marker.
+    marker.addListener('click', function() {
+      populateInfoWindow(this, largeInfowindow);
+    });
+    // Two event listeners - one for mouseover, one for mouseout,
+    // to change the colors back and forth.
+  }
+
   var bounds = new google.maps.LatLngBounds();
+  // Extend the boundaries of the map for each marker and display the marker
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(map);
+    bounds.extend(markers[i].position);
+  }
+  map.fitBounds(bounds);
 
-// I organized the JSON file, with all the data, using this structure:
-// coordinates : {
-//  lat: latitude
-//  lng: longitude
-// }
-// title: Name of the POI
-// category: restaurant | shopping | cultural | bar | entertainment
-
-$.getJSON( "js/POI.json", function( data ) {
-    var locations = data.locations;
-    // The following group uses the location array to create an array of markers on initialize.
-
-    for (var i = 0; i < locations.length; i++) {
-      // Get the position from the location array.
-      var position = locations[i].coordinates;
-      var title = locations[i].title;
-      var category = locations[i].category;
-      var favorite = locations[i].favorite;
-      var address;
-
-      // Create a marker per location, and put into markers array.
-      var geocoder = new google.maps.Geocoder;
-      geocoder.geocode({'location': position}, function(results, status) {
-        if (status === 'OK') {
-          if (results[1]){
-            address = results[1].formatted_address;
-          }
-          else{
-            console.log('No results found');
-          }
-        }
-        else{
-          console.log('Geocoder failed due to: ' + status);
-        }
-      });
-      // work in progress to collect NY Times articles about the POI
-      articleSearch(title);
-      var marker = new google.maps.Marker({
-        map: map,
-        position: position,
-        title: title,
-        animation: google.maps.Animation.DROP,
-        category: category,
-        id: i,
-        formatted_address: address,
-        icon: icons.red_pin
-      });
-
-      // Push the marker to our array of markers.
-      markers.push(marker);
-      POIlist.push({name: title, id: i, category : category, favorite: ko.observable(favorite)});
-      // Create an onclick event to open an infowindow at each marker.
-      marker.addListener('click', function() {
-        populateInfoWindow(this, largeInfowindow);
-      });
-      bounds.extend(markers[i].position);
-    }
-    // Extend the boundaries of the map for each marker
-    map.fitBounds(bounds);
-  console.log("Load correctly data into app");
-}).fail(function(jqXHR, textStatus, errorThrown) {
-  console.log('Error during data request: ' + textStatus + ' - ' + errorThrown);
-});
-};
-
+}
 
 // This function populates the infowindow when the marker is clicked. We'll only allow
 // one infowindow which will open at the marker that is clicked, and populate based
@@ -130,24 +104,45 @@ $.getJSON( "js/POI.json", function( data ) {
 function populateInfoWindow(marker, infowindow) {
   // Check to make sure the infowindow is not already opened on this marker.
   if (infowindow.marker != marker) {
+    // Clear the infowindow content to give the streetview time to load.
+    infowindow.setContent('');
+    var innerHTML = '';
     infowindow.marker = marker;
-    var innerHTML = '<div>';
-    if (marker.title) {
-      innerHTML += '<strong>' + marker.title + '</strong>';
-    }
-    if (marker.formatted_address) {
-      innerHTML += '<br>' + marker.formatted_address;
-    }
-    innerHTML += '</div>';
-
-    infowindow.setContent(innerHTML);
-
-    infowindow.open(map, marker);
+    // Make sure the marker property is cleared if the infowindow is closed.
     infowindow.addListener('closeclick', function() {
       infowindow.marker = null;
     });
+    var streetViewService = new google.maps.StreetViewService();
+    var radius = 50;
+    function getStreetView(data, status) {
+      if (status == google.maps.StreetViewStatus.OK) {
+        var nearStreetViewLocation = data.location.latLng;
+        var heading = google.maps.geometry.spherical.computeHeading(
+          nearStreetViewLocation, marker.position);
+          infowindow.setContent('<div>' + marker.title + '</div><div id="pano"></div>');
+          var panoramaOptions = {
+            position: nearStreetViewLocation,
+            pov: {
+              heading: heading,
+              pitch: 30
+            }
+          };
+        var panorama = new google.maps.StreetViewPanorama(
+          document.getElementById('pano'), panoramaOptions);
+      } else {
+        infowindow.setContent('<div>' + marker.title + '</div>' +
+          '<div>No Street View Found</div>');
+      }
+    }
+    // Use streetview service to get the closest streetview image within
+    // 50 meters of the markers position
+    streetViewService.getPanoramaByLocation(marker.position, radius, getStreetView);
+    // Open the infowindow on the correct marker.
+    infowindow.open(map, marker);
   }
-};
+}
+
+
 
 // ##################   KNOCKOUT   ##################
 
@@ -217,30 +212,4 @@ function favoriteLocation(){
 
 function isFavorite(el){
   return el.favorite() ? "icon-star-full" : "icon-star-empty iconHidden";
-};
-
-
-
-// Built by LucyBot. www.lucybot.com
-function articleSearch(place){
-  var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
-  var date = new Date(), y = date.getFullYear(), m = ("0" + (date.getMonth() + 1)).slice(-2);
-  var firstDay = "01";
-  var lastDay = ("0" + date.getDate()).slice(-2);
-  url += '?' + $.param({
-    'api-key': "117512e0e9bc4b1dafd16fe2ec69a9c3",
-    'q': place,
-    'begin_date': y+"01"+firstDay,
-    'end_date': y+m+lastDay,
-    'fl': "snippet,web_url,headline,pub_date"
-  });
-  console.log(url);
-  $.ajax({
-    url: url,
-    method: 'GET',
-  }).done(function(result) {
-    console.log(result);
-  }).fail(function(err) {
-    throw err;
-  });
 };

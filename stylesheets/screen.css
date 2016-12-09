@@ -228,42 +228,48 @@ html {
 }
 
 /* line 59, ../sass/screen.scss */
+#pano {
+  width: 200px;
+  height: 200px;
+}
+
+/* line 63, ../sass/screen.scss */
 .location {
   padding: 0.25em 0.25em 0.25em 1em;
 }
 
-/* line 62, ../sass/screen.scss */
+/* line 66, ../sass/screen.scss */
 .iconHidden {
   display: none;
 }
 
-/* line 65, ../sass/screen.scss */
+/* line 69, ../sass/screen.scss */
 .location:hover .iconHidden {
   display: inline-block;
 }
 
-/* line 68, ../sass/screen.scss */
+/* line 72, ../sass/screen.scss */
 .locationName, .categoryIcon {
   cursor: pointer;
 }
 
-/* line 72, ../sass/screen.scss */
+/* line 76, ../sass/screen.scss */
 .categoryIcon {
   padding-left: 0.25em;
 }
 
-/* line 75, ../sass/screen.scss */
+/* line 79, ../sass/screen.scss */
 .locationName {
   padding-left: 0.25em;
 }
 
-/* line 78, ../sass/screen.scss */
+/* line 82, ../sass/screen.scss */
 .searchPOI {
   margin-top: 1em;
   margin-left: 1em;
 }
 
-/* line 84, ../sass/screen.scss */
+/* line 88, ../sass/screen.scss */
 .categoryIcon:before {
   background-color: red;
   margin: 0.25em 0;
@@ -272,12 +278,12 @@ html {
   border-radius: 0.25em;
 }
 
-/* line 92, ../sass/screen.scss */
+/* line 96, ../sass/screen.scss */
 #POIlist {
   margin-top: 45px;
 }
 
-/* line 95, ../sass/screen.scss */
+/* line 99, ../sass/screen.scss */
 #searchForm {
   height: 45px;
   background-color: inherit;
