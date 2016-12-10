@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Neighborhood Map</title>
+    <link href="css/screen.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h1 class="titleApp">Neighborhood Navigation</h1>
+    </header>
+    <aside class="sideResults hiddenclass">
+      <div class="menuSideMenu">
+        <form id="searchForm">
+          <input placeholder="Search…" type="search" class="searchPOI" data-bind="textInput: filter">
+        </form>
+        <ul id="POIlist" data-bind="foreach: filteredItems">
+              <li class="location" data-bind="click: openInfoWindow, event:{mouseover:changePinColor, mouseout: defaultPinColor}"><span class="categoryIcon" data-bind="css: 'icon-'+$data.category"></span><span class="locationName" data-bind="text:$data.name"></span>
+                <span data-bind="click:favoriteLocation, css: isFavorite($data)"></span>
+              </li>
+          </ul>
+      </div>
+      <div class="menuSideResults">
+        <div class="searchMenu">
+          <div class="menu-btn icon-menu"></div>
+        </div>
+      </div>
+    </aside>
+    <div id="map"></div>
+    <footer>
+      Design & Coded by Guglielmo Turco <a class="icon-web" href="http://guglielmo-turco.com" target="_blank"></a> <a href="https://it.linkedin.com/in/guglielmo-turco" class="icon-linkedin" target="_blank"></a> <a href="https://github.com/guglio" class="icon-github" target="_blank"></a>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.1/knockout-min.js"></script>
+    <script src="js/app.js"></script>
+    <script async defer
+        src=
+        "https://maps.googleapi.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyCXAIOi4uNQuag0UbOJcSUqC5_p5bnTM0k&v=3&callback=initMap" onerror="mapError()">
+    </script>
+  </body>
+</html>
