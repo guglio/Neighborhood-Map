@@ -1,61 +1,370 @@
-/*
-Error: Invalid CSS after "    max-width": expected ";", was ": 350px;"
-        on line 165 of /Users/guglio/Sites/Neighborhood-Map/sass/screen.scss
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700");
+/* line 5, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
 
-160:   &Img{
-161:     margin: 0 auto;
-162:     display:block;
-163:     //width: 80%;
-164:     height: 50%
-165:     max-width: 350px;
-166:   }
-167:   &Msg{
-168:     padding-top: 1em;
-169:     font-size: 2em;
-170:     text-align: center;
+/* line 22, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
 
-Backtrace:
-/Users/guglio/Sites/Neighborhood-Map/sass/screen.scss:165
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:1189:in `expected'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:1125:in `expected'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:1120:in `tok!'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:777:in `block in try_declaration'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:1165:in `call'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:1165:in `rethrow'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:782:in `try_declaration'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:711:in `declaration_or_ruleset'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:676:in `block_child'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:668:in `block_contents'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:657:in `block'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:726:in `declaration_or_ruleset'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:676:in `block_child'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:665:in `block_contents'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:657:in `block'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:649:in `ruleset'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:675:in `block_child'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:668:in `block_contents'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:125:in `stylesheet'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:41:in `parse'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/engine.rb:406:in `_to_tree'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/engine.rb:281:in `render'
-/Library/Ruby/Gems/2.0.0/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:17:in `block in render'
-/Library/Ruby/Gems/2.0.0/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:29:in `with_import_scope'
-/Library/Ruby/Gems/2.0.0/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:16:in `render'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:494:in `update_stylesheet'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:209:in `each'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:473:in `on_file_changed'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:331:in `block in watch'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/vendor/listen/lib/listen/listener.rb:252:in `call'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/vendor/listen/lib/listen/listener.rb:252:in `on_change'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/vendor/listen/lib/listen/adapter.rb:254:in `call'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/vendor/listen/lib/listen/adapter.rb:254:in `report_changes'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/vendor/listen/lib/listen/adapter.rb:323:in `poll_changed_directories'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Invalid CSS after \"    max-width\": expected \";\", was \": 350px;\"\A         on line 165 of /Users/guglio/Sites/Neighborhood-Map/sass/screen.scss\A \A 160:   &Img{\A 161:     margin: 0 auto;\A 162:     display:block;\A 163:     //width: 80%;\A 164:     height: 50%\A 165:     max-width: 350px;\A 166:   }\A 167:   &Msg{\A 168:     padding-top: 1em;\A 169:     font-size: 2em;\A 170:     text-align: center;"; }
+/* line 24, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src: url("../fonts/icomoon.eot?33l2ez");
+  src: url("../fonts/icomoon.eot?33l2ez#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?33l2ez") format("truetype"), url("../fonts/icomoon.woff?33l2ez") format("woff"), url("../fonts/icomoon.svg?33l2ez#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 12, ../sass/_fonts.scss */
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* line 27, ../sass/_fonts.scss */
+.icon-cultural:before {
+  content: "\e90f";
+}
+
+/* line 30, ../sass/_fonts.scss */
+.icon-entertainment:before {
+  content: "\e939";
+}
+
+/* line 33, ../sass/_fonts.scss */
+.icon-shopping:before {
+  content: "\e93a";
+}
+
+/* line 36, ../sass/_fonts.scss */
+.icon-location:before {
+  content: "\e948";
+}
+
+/* line 39, ../sass/_fonts.scss */
+.icon-map-full:before {
+  content: "\e94b";
+}
+
+/* line 42, ../sass/_fonts.scss */
+.icon-map-empty:before {
+  content: "\e94c";
+}
+
+/* line 45, ../sass/_fonts.scss */
+.icon-bar:before {
+  content: "\e9a1";
+}
+
+/* line 48, ../sass/_fonts.scss */
+.icon-restaurant:before {
+  content: "\e9a3";
+}
+
+/* line 51, ../sass/_fonts.scss */
+.icon-menu:before {
+  content: "\e9bd";
+}
+
+/* line 54, ../sass/_fonts.scss */
+.icon-bookmark:before {
+  content: "\e9d2";
+}
+
+/* line 57, ../sass/_fonts.scss */
+.icon-star-empty:before {
+  content: "\e9d7";
+}
+
+/* line 60, ../sass/_fonts.scss */
+.icon-star-full:before {
+  content: "\e9d9";
+}
+
+/* line 63, ../sass/_fonts.scss */
+.icon-heart:before {
+  content: "\e9da";
+}
+
+/* line 66, ../sass/_fonts.scss */
+.icon-web:before {
+  content: "\ea80";
+}
+
+/* line 69, ../sass/_fonts.scss */
+.icon-github:before {
+  content: "\eab0";
+}
+
+/* line 72, ../sass/_fonts.scss */
+.icon-linkedin:before {
+  content: "\eac9";
+}
+
+/* line 13, ../sass/screen.scss */
+html {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+}
+
+/* line 17, ../sass/screen.scss */
+.titleApp {
+  font-size: 2em;
+  text-align: center;
+  padding: 0.25em 0;
+  background-color: #4E6370;
+  color: #E6F0EF;
+  font-weight: 300;
+}
+
+/* line 25, ../sass/screen.scss */
+.sideResults {
+  height: calc(100vh - 42px - 43px);
+  width: 300px;
+  position: absolute;
+  color: #E6F0EF;
+  z-index: 3;
+}
+
+/* line 32, ../sass/screen.scss */
+.menuSideMenu {
+  background-color: #22283B;
+  width: 270px;
+  height: 100%;
+  float: left;
+  overflow: scroll;
+  position: relative;
+}
+
+/* line 40, ../sass/screen.scss */
+.menuSideResults {
+  float: right;
+  width: 30px;
+}
+
+/* line 45, ../sass/screen.scss */
+.searchMenu {
+  height: 30px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background: #22283B;
+}
+
+/* line 51, ../sass/screen.scss */
+.menu-btn {
+  padding: 5px 0 0 5px;
+}
+
+/* line 54, ../sass/screen.scss */
+#map {
+  position: absolute;
+  height: calc(100vh - 42px - 43px);
+  width: 100%;
+}
+
+/* line 59, ../sass/screen.scss */
+#pano {
+  width: 200px;
+  height: 200px;
+}
+
+/* line 63, ../sass/screen.scss */
+.location {
+  padding: 0.25em 0.25em 0.25em 1em;
+}
+
+/* line 66, ../sass/screen.scss */
+.iconHidden {
+  display: none;
+}
+
+/* line 69, ../sass/screen.scss */
+.location:hover .iconHidden {
+  display: inline-block;
+}
+
+/* line 72, ../sass/screen.scss */
+.locationName, .categoryIcon {
+  cursor: pointer;
+}
+
+/* line 76, ../sass/screen.scss */
+.categoryIcon {
+  padding-left: 0.25em;
+}
+
+/* line 79, ../sass/screen.scss */
+.locationName {
+  padding-left: 0.25em;
+}
+
+/* line 82, ../sass/screen.scss */
+.searchPOI {
+  margin-top: 1em;
+  margin-left: 1em;
+}
+
+/* line 88, ../sass/screen.scss */
+.categoryIcon:before {
+  background-color: red;
+  margin: 0.25em 0;
+  padding: 0.25em;
+  display: inline-block;
+  border-radius: 0.25em;
+}
+
+/* line 96, ../sass/screen.scss */
+#POIlist {
+  margin-top: 45px;
+}
+
+/* line 99, ../sass/screen.scss */
+#searchForm {
+  height: 45px;
+  background-color: inherit;
+  position: fixed;
+  top: 42px;
+  width: 270px;
+}
+
+/* line 107, ../sass/screen.scss */
+.newsHeadline {
+  color: black;
+  margin-left: 2em;
+}
+/* line 111, ../sass/screen.scss */
+.newsLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* line 116, ../sass/screen.scss */
+#news {
+  width: 200px;
+  height: 5em;
+  overflow: scroll;
+  list-style-type: disc !important;
+  list-style-position: outside !important;
+}
+
+/* line 123, ../sass/screen.scss */
+.markerName {
+  font-size: 1.25em;
+  text-align: center;
+  padding-bottom: 0.5em;
+}
+
+/* line 128, ../sass/screen.scss */
+#error {
+  position: fixed;
+  padding: 2em 0;
+  width: 100%;
+  top: 42px;
+  height: auto;
+  text-align: center;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 1.5em;
+  overflow: scroll;
+}
+
+/* line 141, ../sass/screen.scss */
+footer {
+  z-index: 10;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  padding: 1em 0;
+  background-color: #E6F0EF;
+  color: #000;
+  text-align: center;
+}
+/* line 150, ../sass/screen.scss */
+footer a {
+  text-decoration: none;
+}
+/* line 151, ../sass/screen.scss */
+footer a:link, footer a:visited, footer a:hover, footer a:active {
+  color: inherit;
+}
+
+/* line 160, ../sass/screen.scss */
+.errorMapImg {
+  margin: 0 auto;
+  display: block;
+  width: 60%;
+  max-width: 350px;
+}
+/* line 166, ../sass/screen.scss */
+.errorMapMsg {
+  padding-top: 1em;
+  font-size: 2em;
+  text-align: center;
+  font-weight: bold;
+}
