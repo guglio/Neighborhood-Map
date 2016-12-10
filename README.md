@@ -4,7 +4,22 @@ This project is a single-page application featuring a map of my neighborhood in 
 
 ## Getting started
 
-A running version of this project is available [here](https://guglio.github.io/Neighborhood-Map/).
+### Local installation
+
+1. install a local web-server, I use [http-server](https://www.npmjs.com/package/http-server).
+ . `npm install http-server` to install this package globally
+2. clone or download this project repo [https://github.com/guglio/Neighborhood-Map.git](https://github.com/guglio/Neighborhood-Map.git)
+3. launch the web-server
+  . If you use `http-server`:
+    1. `open terminal`
+    2. `cd <PATH>/Neighborhood-Map/`
+    3. `http-server`
+    4. open browser and enter `http://localhost:8080`
+    5. Done! :)
+4. open browser and enter `http://localhost/`
+
+### Location specs
+
 I loaded an external JSON file for the locations, and the structure is as follow:
 
 ```javascript
@@ -21,6 +36,8 @@ I loaded an external JSON file for the locations, and the structure is as follow
 `title` -> name of the place you want to show on the infowindow and to search inside the New York Times articles
 `favorite` -> mark this place as favorite or not
 `category` -> is for the icons in the side menu
+
+A running version of this project is also available [here](https://guglio.github.io/Neighborhood-Map/).
 
 ## Built with
 
