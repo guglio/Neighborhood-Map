@@ -39,6 +39,11 @@ I loaded an external JSON file for the locations, and the structure is as follow
 
 A running version of this project is also available [here](https://guglio.github.io/Neighborhood-Map/).
 
+### Google Map fallback error handling method
+
+I duplicated the `index.html` to `index_err.html` to show how the Google Map fallback error handling method works.
+You can check [here](https://guglio.github.io/Neighborhood-Map/index_err.html).
+
 ## Built with
 
 * [Knockout](http://knockoutjs.com/) framework
