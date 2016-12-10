@@ -184,11 +184,11 @@ html {
 
 /* line 25, ../sass/screen.scss */
 .sideResults {
-  height: calc(100vh - 42px);
+  height: calc(100vh - 42px - 43px);
   width: 300px;
   position: absolute;
   color: #E6F0EF;
-  z-index: 2;
+  z-index: 3;
 }
 
 /* line 32, ../sass/screen.scss */
@@ -223,7 +223,7 @@ html {
 /* line 54, ../sass/screen.scss */
 #map {
   position: absolute;
-  height: calc(100vh - 42px);
+  height: calc(100vh - 42px - 43px);
   width: 100%;
 }
 
@@ -317,4 +317,51 @@ html {
   font-size: 1.25em;
   text-align: center;
   padding-bottom: 0.5em;
+}
+
+/* line 128, ../sass/screen.scss */
+#error {
+  position: fixed;
+  padding: 2em 0;
+  width: 100%;
+  top: 5em;
+  height: auto;
+  text-align: center;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 1.5em;
+}
+
+/* line 140, ../sass/screen.scss */
+footer {
+  z-index: 10;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  padding: 1em 0;
+  background-color: #E6F0EF;
+  color: #000;
+  text-align: center;
+}
+/* line 149, ../sass/screen.scss */
+footer a {
+  text-decoration: none;
+}
+/* line 150, ../sass/screen.scss */
+footer a:link, footer a:visited, footer a:hover, footer a:active {
+  color: inherit;
+}
+
+/* line 159, ../sass/screen.scss */
+.errorMapImg {
+  margin: 2em auto 0 auto;
+  display: block;
+}
+/* line 163, ../sass/screen.scss */
+.errorMapMsg {
+  padding-top: 1em;
+  font-size: 2em;
+  text-align: center;
+  font-weight: bold;
 }

@@ -23,11 +23,11 @@ html{
   font-weight: 300;
 }
 .sideResults{
-  height: calc(100vh - 42px);
+  height: calc(100vh - 42px - 43px);
   width:300px;
   position: absolute;
   color: $almostWhite;
-  z-index: 2;
+  z-index: 3;
 }
 .menuSideMenu{
   background-color: $darkBlue;
@@ -53,7 +53,7 @@ html{
 }
 #map{
   position: absolute;
-  height: calc(100vh - 42px);
+  height: calc(100vh - 42px - 43px);
   width: 100%;
 }
 #pano {
@@ -124,4 +124,46 @@ html{
   font-size: 1.25em;
   text-align: center;
   padding-bottom: 0.5em;
+}
+#error{
+  position: fixed;
+  padding: 2em 0;
+  width: 100%;
+  top: 5em;
+  height: auto;
+  text-align: center;
+  z-index: 10;
+  background-color: rgba(0,0,0,0.8);
+  color: #fff;
+  font-size: 1.5em;
+}
+footer{
+  z-index: 10;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  padding: 1em 0;
+  background-color: $almostWhite;
+  color: #000;
+  text-align: center;
+  a{
+    &:link,
+    &:visited,
+    &:hover,
+    &:active,
+    {color: inherit;}
+    text-decoration: none;
+  }
+}
+.errorMap{
+  &Img{
+    margin:2em auto 0 auto;
+    display:block;
+  }
+  &Msg{
+    padding-top: 1em;
+    font-size: 2em;
+    text-align: center;
+    font-weight: bold;
+  }
 }
