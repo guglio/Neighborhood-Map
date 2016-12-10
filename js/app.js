@@ -24,6 +24,10 @@ $(window).resize(function(){
     animateHide($('.hiddenclass'));
 });
 
+var displayError = ko.observable(false);
+var errorMessage = ko.observable('');
+
+
 // ##################   GOOGLE MAP API SECTION   ##################
 
 var POIlist = ko.observableArray();
@@ -157,34 +161,36 @@ function populateInfoWindow(marker, infowindow) {
     }).fail(function(err) {
       news += '<li>No news</li></ul>';
       spitError(err);
-    });
-    var streetViewService = new google.maps.StreetViewService();
-    var radius = 50;
-    function getStreetView(data, status) {
-      if (status == google.maps.StreetViewStatus.OK) {
-        var nearStreetViewLocation = data.location.latLng;
-        var heading = google.maps.geometry.spherical.computeHeading(
-          nearStreetViewLocation, marker.position);
-          infowindow.setContent('<h4 class="markerName">' + marker.title + '</h4><div id="pano"></div>'+news);
-          var panoramaOptions = {
-            position: nearStreetViewLocation,
-            pov: {
-              heading: heading,
-              pitch: 30
-            }
-          };
-          var panorama = new google.maps.StreetViewPanorama(
-            document.getElementById('pano'), panoramaOptions);
-      } else {
-        infowindow.setContent('<h4 class="markerName">' + marker.title + '</h4>' + '<div>No Street View Found</div>'+news);
+    }).always(function(){
+      var streetViewService = new google.maps.StreetViewService();
+      var radius = 50;
+      function getStreetView(data, status) {
+        if (status == google.maps.StreetViewStatus.OK) {
+          var nearStreetViewLocation = data.location.latLng;
+          var heading = google.maps.geometry.spherical.computeHeading(
+            nearStreetViewLocation, marker.position);
+            infowindow.setContent('<h4 class="markerName">' + marker.title + '</h4><div id="pano"></div>'+news);
+            var panoramaOptions = {
+              position: nearStreetViewLocation,
+              pov: {
+                heading: heading,
+                pitch: 30
+              }
+            };
+            var panorama = new google.maps.StreetViewPanorama(
+              document.getElementById('pano'), panoramaOptions);
+        } else {
+          infowindow.setContent('<h4 class="markerName">' + marker.title + '</h4>' + '<div>No Street View Found</div>'+news);
+        }
       }
-    }
-    setTimeout(function () {
-    // Use streetview service to get the closest streetview image within
-    // 50 meters of the markers position
-    streetViewService.getPanoramaByLocation(marker.position, radius, getStreetView);
-    // Open the infowindow on the correct marker.
-    infowindow.open(map, marker);},250);
+
+      // Use streetview service to get the closest streetview image within
+      // 50 meters of the markers position
+      streetViewService.getPanoramaByLocation(marker.position, radius, getStreetView);
+      // Open the infowindow on the correct marker.
+      infowindow.open(map, marker);
+    });
+
   }
 }
 
@@ -199,7 +205,7 @@ var locationsViewModel = function(){
   var self = this;
 
     self.filter = ko.observable('');
-
+    self.showError = ko.observable(false);
     self.locationsList = POIlist;
     self.filteredItems = ko.computed(function() {
       var filter = self.filter();
@@ -276,11 +282,12 @@ function isFavorite(el){
 }
 
 function spitError(message){
-  $('#map').after('<div id="error"></div>');
-  $("#error").append(message);
+  var self = this;
+  self.displayError(true);
+  self.errorMessage(message);
 }
 
 function mapError(){
   animateHide($('.hiddenclass'));
-  $('#map').append('<img src="images/wilson_lost.jpg" class="errorMapImg"><h4 class="errorMapMsg">Error while contacting Google Map service</h4>');
+  spitError('<img src="images/wilson_lost.jpg" class="errorMapImg"><h4 class="errorMapMsg">Error while contacting Google Map service</h4>')
 }

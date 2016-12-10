@@ -324,7 +324,7 @@ html {
   position: fixed;
   padding: 2em 0;
   width: 100%;
-  top: 5em;
+  top: 42px;
   height: auto;
   text-align: center;
   z-index: 10;
@@ -355,10 +355,11 @@ footer a:link, footer a:visited, footer a:hover, footer a:active {
 
 /* line 159, ../sass/screen.scss */
 .errorMapImg {
-  margin: 2em auto 0 auto;
+  margin: 1em auto 0 auto;
   display: block;
+  width: 80%;
 }
-/* line 163, ../sass/screen.scss */
+/* line 164, ../sass/screen.scss */
 .errorMapMsg {
   padding-top: 1em;
   font-size: 2em;

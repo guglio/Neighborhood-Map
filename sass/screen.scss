@@ -129,7 +129,7 @@ html{
   position: fixed;
   padding: 2em 0;
   width: 100%;
-  top: 5em;
+  top: 42px;
   height: auto;
   text-align: center;
   z-index: 10;
@@ -157,8 +157,9 @@ footer{
 }
 .errorMap{
   &Img{
-    margin:2em auto 0 auto;
+    margin:1em auto 0 auto;
     display:block;
+    width: 80%;
   }
   &Msg{
     padding-top: 1em;

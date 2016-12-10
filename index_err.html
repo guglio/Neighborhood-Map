@@ -29,6 +29,7 @@
       </div>
     </aside>
     <div id="map"></div>
+    <div id="error" data-bind="html: errorMessage, visible: displayError"></div>
     <footer>
       Design & Coded by Guglielmo Turco <a class="icon-web" href="http://guglielmo-turco.com" target="_blank"></a> <a href="https://it.linkedin.com/in/guglielmo-turco" class="icon-linkedin" target="_blank"></a> <a href="https://github.com/guglio" class="icon-github" target="_blank"></a>
     </footer>
@@ -37,7 +38,7 @@
     <script src="js/app.js"></script>
     <script async defer
         src=
-        "https://maps.googleapi.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyCXAIOi4uNQuag0UbOJcSUqC5_p5bnTM0k&v=3&callback=initMap" onerror="mapError()">
+        "https://maps.googleapis.co/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyCXAIOi4uNQuag0UbOJcSUqC5_p5bnTM0k&v=3&callback=initMap" onerror="mapError()">
     </script>
   </body>
 </html>
