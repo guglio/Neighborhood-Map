@@ -289,5 +289,5 @@ function spitError(message){
 
 function mapError(){
   animateHide($('.hiddenclass'));
-  spitError('<img src="images/wilson_lost.jpg" class="errorMapImg"><h4 class="errorMapMsg">Error while contacting Google Map service</h4>')
+  spitError('<img src="images/Bear_Grylls.png" class="errorMapImg"><h4 class="errorMapMsg">Error while contacting Google Map service</h4>')
 }
