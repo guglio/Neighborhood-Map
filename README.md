@@ -7,15 +7,15 @@ This project is a single-page application featuring a map of my neighborhood in 
 ### Local installation
 
 1. install a local web-server, I use [http-server](https://www.npmjs.com/package/http-server).
- . `npm install http-server` to install this package globally
+    * `npm install http-server` to install this package globally
 2. clone or download this project repo [https://github.com/guglio/Neighborhood-Map.git](https://github.com/guglio/Neighborhood-Map.git)
 3. launch the web-server
-  . If you use `http-server`:
-    1. `open terminal`
-    2. `cd <PATH>/Neighborhood-Map/`
-    3. `http-server`
-    4. open browser and enter `http://localhost:8080`
-    5. Done! :)
+    * If you use `http-server`:
+        1. `open terminal`
+        2. `cd <PATH>/Neighborhood-Map/`
+        3. `http-server`
+        4. open browser and enter `http://localhost:8080`
+        5. Done! :)
 4. open browser and enter `http://localhost/`
 
 ### Location specs
