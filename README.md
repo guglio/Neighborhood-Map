@@ -1,6 +1,6 @@
 # Neighborhood Map Project
 
-This project is a single-page application featuring a map of my neighborhood in Italy. My custom map features popular locations to visit, a search function to easily discover these locations, and a listview to support simple browsing of all locations. I implemented third-party APIs that provide additional information about each of these locations.
+This project is a single-page application featuring a map of neighborhood in San Diego. My custom map features popular locations to visit, a search function to easily discover these locations, and a listview to support simple browsing of all locations. I implemented third-party APIs that provide additional information about each of these locations.
 
 ## Getting started
 
